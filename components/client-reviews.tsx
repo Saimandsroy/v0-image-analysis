@@ -92,12 +92,12 @@ export default function ClientReviews() {
   }
 
   return (
-    <section id="client-reviews" ref={sectionRef} className="py-20 px-4 md:px-10 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-serif text-maroon text-center mb-4">
+    <section id="client-reviews" ref={sectionRef} className="py-10 px-2 sm:py-16 sm:px-4 md:px-10 bg-white">
+      <div className="max-w-7xl mx-auto w-full">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-maroon text-center mb-3 sm:mb-4">
           {t("Hamare Khush Grahak", "Our Happy Clients", "हमारे खुश ग्राहक")}
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        <p className="text-center text-gray-600 mb-6 sm:mb-12 max-w-3xl mx-auto text-sm sm:text-base">
           {t(
             "Dekhiye hamare clients kya kehte hain Awadhi Homes ke baare mein:",
             "See what our clients say about Awadhi Homes:",
@@ -107,13 +107,13 @@ export default function ClientReviews() {
 
         <div ref={reviewsRef} className="relative">
           <div className="flex justify-center">
-            <div className="bg-cream p-8 rounded-lg shadow-md border border-gold/20 max-w-3xl relative">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gold text-white px-4 py-2 rounded-full">
-                <div className="flex items-center gap-1">
+            <div className="bg-cream p-4 sm:p-8 rounded-lg shadow-md border border-gold/20 max-w-3xl w-full relative">
+              <div className="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-gold text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">
+                <div className="flex items-center gap-0.5 sm:gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${
+                      className={`w-3 h-3 sm:w-4 sm:h-4 ${
                         i < reviews[currentIndex].rating ? "text-white fill-white" : "text-white/30"
                       }`}
                     />
@@ -121,8 +121,8 @@ export default function ClientReviews() {
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-gold/30">
+              <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-gold/30 flex-shrink-0">
                   <Image
                     src={reviews[currentIndex].image || "/placeholder.svg"}
                     alt={reviews[currentIndex].name}
@@ -131,29 +131,31 @@ export default function ClientReviews() {
                   />
                 </div>
 
-                <div className="flex-1">
-                  <p className="text-gray-700 italic mb-4">"{reviews[currentIndex].text}"</p>
-                  <div>
-                    <h3 className="font-medium text-lg">{reviews[currentIndex].name}</h3>
-                    <p className="text-sm text-gray-600">{reviews[currentIndex].location}</p>
-                    <p className="text-sm text-gold font-medium">{reviews[currentIndex].project}</p>
+                <div className="flex-1 w-full">
+                  <p className="text-gray-700 italic mb-2 sm:mb-4 text-sm sm:text-base text-center md:text-left">"{reviews[currentIndex].text}"</p>
+                  <div className="text-center md:text-left">
+                    <h3 className="font-medium text-base sm:text-lg">{reviews[currentIndex].name}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">{reviews[currentIndex].location}</p>
+                    <p className="text-xs sm:text-sm text-gold font-medium">{reviews[currentIndex].project}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex justify-center mt-6 gap-2">
+              <div className="flex justify-center mt-4 sm:mt-6 gap-2">
                 {reviews.map((_, index) => (
                   <button
                     key={index}
-                    className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-gold" : "bg-gray-300"}`}
+                    className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full ${index === currentIndex ? "bg-gold" : "bg-gray-300"}`}
                     onClick={() => setCurrentIndex(index)}
                     aria-label={`Go to review ${index + 1}`}
+                    style={{ minWidth: 12, minHeight: 12 }}
                   ></button>
                 ))}
               </div>
 
               <button
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-maroon p-2 rounded-full shadow-md"
+                className="absolute left-1 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-maroon p-2 rounded-full shadow-md"
+                style={{ minWidth: 36, minHeight: 36 }}
                 onClick={prevReview}
                 aria-label="Previous review"
               >
@@ -161,7 +163,8 @@ export default function ClientReviews() {
               </button>
 
               <button
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-maroon p-2 rounded-full shadow-md"
+                className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-maroon p-2 rounded-full shadow-md"
+                style={{ minWidth: 36, minHeight: 36 }}
                 onClick={nextReview}
                 aria-label="Next review"
               >
@@ -170,36 +173,36 @@ export default function ClientReviews() {
             </div>
           </div>
 
-          <div className="mt-12 p-6 bg-maroon/5 rounded-lg max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gold/20 p-2 rounded-full">
-                <Star className="w-6 h-6 text-gold fill-gold" />
+          <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-maroon/5 rounded-lg max-w-3xl mx-auto w-full">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <div className="bg-gold/20 p-1.5 sm:p-2 rounded-full">
+                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-gold fill-gold" />
               </div>
               <div>
-                <h3 className="font-medium">4.8/5 Google Reviews</h3>
-                <p className="text-sm text-gray-600">
+                <h3 className="font-medium text-sm sm:text-base">4.8/5 Google Reviews</h3>
+                <p className="text-xs sm:text-sm text-gray-600">
                   {t("Based on 120+ reviews", "Based on 120+ reviews", "120+ रिव्यूज के आधार पर")}
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <div className="bg-white px-4 py-2 rounded border border-gray-200">
-                <p className="text-sm font-medium">{t("ISO Certified", "ISO Certified", "आईएसओ प्रमाणित")}</p>
+            <div className="flex flex-wrap gap-2 sm:gap-4 justify-center">
+              <div className="bg-white px-3 py-1.5 sm:px-4 sm:py-2 rounded border border-gray-200">
+                <p className="text-xs sm:text-sm font-medium">{t("ISO Certified", "ISO Certified", "आईएसओ प्रमाणित")}</p>
               </div>
-              <div className="bg-white px-4 py-2 rounded border border-gray-200">
-                <p className="text-sm font-medium">
+              <div className="bg-white px-3 py-1.5 sm:px-4 sm:py-2 rounded border border-gray-200">
+                <p className="text-xs sm:text-sm font-medium">
                   {t("15+ Years Experience", "15+ Years Experience", "15+ वर्षों का अनुभव")}
                 </p>
               </div>
-              <div className="bg-white px-4 py-2 rounded border border-gray-200">
-                <p className="text-sm font-medium">
+              <div className="bg-white px-3 py-1.5 sm:px-4 sm:py-2 rounded border border-gray-200">
+                <p className="text-xs sm:text-sm font-medium">
                   {t("200+ Projects Completed", "200+ Projects Completed", "200+ प्रोजेक्ट्स पूरे किए")}
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 text-center">
-              <Button className="bg-gold hover:bg-gold/80 text-maroon hover:text-white px-6 py-2 rounded-md transition-all">
+            <div className="mt-4 sm:mt-6 text-center">
+              <Button className="bg-gold hover:bg-gold/80 text-maroon hover:text-white px-4 sm:px-6 py-2 rounded-md transition-all min-w-[120px] min-h-[48px]">
                 {t("Free Site Visit Book Karein", "Book a Free Site Visit", "फ्री साइट विजिट बुक करें")}
               </Button>
             </div>

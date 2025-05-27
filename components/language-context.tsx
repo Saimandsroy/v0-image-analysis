@@ -2,6 +2,7 @@
 
 import { createContext, useState, useContext, useEffect, type ReactNode } from "react"
 import { usePathname, useRouter } from "next/navigation"
+import React, { useState as useDropdownState } from "react"
 
 type Language = "hinglish" | "english" | "hindi"
 
@@ -14,6 +15,13 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+
+// Add a space after each language name for display
+export const LANGUAGE_LABELS: Record<Language, string> = {
+  hinglish: "Hinglish",
+  english: "English",
+  hindi: "Hindi",
+}
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("hinglish")
@@ -83,6 +91,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, getMetaTitle, getMetaDescription }}>
+      {/* Optionally, you can use LANGUAGE_LABELS[language] wherever you display the language name */}
       {children}
     </LanguageContext.Provider>
   )
@@ -94,4 +103,47 @@ export function useLanguage() {
     throw new Error("useLanguage must be used within a LanguageProvider")
   }
   return context
+}
+
+// LanguageSwitcher component
+export function LanguageSwitcher() {
+  const { language, setLanguage } = useLanguage()
+  const [open, setOpen] = useDropdownState(false)
+
+  return (
+    <div
+      className="fixed top-2 right-4 z-50"
+      style={{ minWidth: 48, minHeight: 48 }}
+    >
+      <div className="relative">
+        {/* Circle button */}
+        <button
+          className="w-12 h-12 rounded-full bg-sky-500 text-white font-bold flex items-center justify-center shadow-lg border-2 border-white hover:bg-sky-600 transition"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Change language"
+        >
+          {LANGUAGE_LABELS[language].charAt(0)}
+        </button>
+        {/* Dropdown */}
+        {open && (
+          <div className="absolute right-0 mt-2 rounded shadow-lg py-2 flex flex-col min-w-[100px] bg-transparent backdrop-blur-none">
+            {Object.entries(LANGUAGE_LABELS).map(([key, label]) => (
+              <button
+                key={key}
+                className={`px-4 py-2 text-left hover:bg-sky-100 text-gray-800 ${
+                  language === key ? "font-bold text-sky-600" : ""
+                }`}
+                onClick={() => {
+                  setLanguage(key as Language)
+                  setOpen(false)
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
 }

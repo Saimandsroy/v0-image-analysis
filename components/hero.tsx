@@ -85,16 +85,20 @@ export default function Hero() {
         style={{ backgroundImage: "url('/images/rumi-darwaza.png')" }}
       ></div>
 
+      {/* Awadhi Homes top-left */}
+      <div
+        className="absolute left-6 z-15"
+        style={{ top: "90px" }} // Adjust this value as needed (e.g., "85px", "100px", etc.)
+      >
+        <div className="relative">
+          <div className="absolute inset-0 bg-sky-500/70 rounded-lg -z-10 transform scale-110"></div>
+          <h1 className="text-3xl md:text-4xl font-serif font-bold px-2 py-1 text-darkBlue">Awadhi Homes</h1>
+        </div>
+      </div>
+
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4 pt-16">
         <div ref={textRef} className="flex w-full justify-between px-4 md:px-20 mb-6">
-          <div className="relative">
-            <div className="absolute inset-0 bg-sky-500/70 rounded-lg -z-10 transform scale-110"></div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold px-4 py-2">Awadhi</h1>
-          </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-maroon/70 rounded-lg -z-10 transform scale-110"></div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold px-4 py-2">Homes</h1>
-          </div>
+          {/* Removed the old heading from here */}
         </div>
 
         <div ref={taglineRef} className="text-center mb-8 max-w-3xl">
@@ -107,9 +111,9 @@ export default function Hero() {
           </h2>
           <p className="text-lg md:text-xl opacity-90">
             {t(
-              "15+ saal ka experience, 200+ successful projects",
-              "15+ years of experience, 200+ successful projects",
-              "15+ साल का अनुभव, 200+ सफल प्रोजेक्ट्स",
+              "15+ saal ka experience, 100+ successful projects",
+              "15+ years of experience, 100+ successful projects",
+              "15+ साल का अनुभव, 100+ सफल प्रोजेक्ट्स",
             )}
           </p>
         </div>
@@ -141,7 +145,7 @@ export default function Hero() {
               <div className="bg-gold/20 p-2 rounded-full">
                 <Image src="/placeholder.svg?height=30&width=30&text=★" alt="Experience" width={30} height={30} />
               </div>
-              <span className="text-sm md:text-base font-medium">
+              <span className="text-sm md:text-base font-medium" style={{ color: "#B22222" }}>
                 {t("15+ Years Experience", "15+ Years Experience", "15+ वर्षों का अनुभव")}
               </span>
             </div>
@@ -149,15 +153,15 @@ export default function Hero() {
               <div className="bg-gold/20 p-2 rounded-full">
                 <Image src="/placeholder.svg?height=30&width=30&text=✓" alt="Projects" width={30} height={30} />
               </div>
-              <span className="text-sm md:text-base font-medium">
-                {t("200+ Projects Completed", "200+ Projects Completed", "200+ प्रोजेक्ट्स पूरे किए")}
+              <span className="text-sm md:text-base font-medium" style={{ color: "#800000" }}>
+                {t("100+ Projects Completed", "100+ Projects Completed", "100+ प्रोजेक्ट्स पूरे किए")}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <div className="bg-gold/20 p-2 rounded-full">
                 <Image src="/placeholder.svg?height=30&width=30&text=★" alt="Rating" width={30} height={30} />
               </div>
-              <span className="text-sm md:text-base font-medium">
+              <span className="text-sm md:text-base font-medium" style={{ color: "#800000" }}>
                 {t("4.8/5 Google Rating", "4.8/5 Google Rating", "4.8/5 गूगल रेटिंग")}
               </span>
             </div>
