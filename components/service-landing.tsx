@@ -132,7 +132,14 @@ export default function ServiceLanding({ service }: ServiceLandingProps) {
 
             <ul className="space-y-3 mb-8">
               {service.features.map((feature, index) => (
-                <li key={index} ref={(el) => (featuresRef.current[index] = el)} className="flex items-start gap-3">
+                <li
+                  key={index}
+                  ref={el => {
+                    // Always assign, even if el is null (React expects this for cleanup)
+                    featuresRef.current[index] = el
+                  }}
+                  className="flex items-start gap-3"
+                >
                   <div className="bg-gold/20 p-1 rounded-full mt-1">
                     <Check className="w-4 h-4 text-gold" />
                   </div>

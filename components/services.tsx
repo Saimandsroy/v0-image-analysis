@@ -13,20 +13,11 @@ export default function Services() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<(HTMLDivElement | null)[]>([])
 
-  const services = [
-    {
-      icon: <Home className="w-10 h-10 text-gold" />,
-      title: t(
-        "Interior Design (Old Homes to New Homes)",
-        "Interior Design (Old Homes to New Homes)",
-        "इंटीरियर डिज़ाइन (पुराने घरों से नए घरों तक)",
-      ),
-      description: t(
-        "Purane makaan ko naya look dena—from classic to contemporary.",
-        "Give your old house a new look—from classic to contemporary.",
-        "पुराने मकान को नया लुक देना—क्लासिक से कंटेम्पररी तक।",
-      ),
-    },
+  const services: {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+  }[] = [
     {
       icon: <Building2 className="w-10 h-10 text-gold" />,
       title: t(
@@ -40,6 +31,20 @@ export default function Services() {
         "आपकी ज़मीन पर सपनों का घर—फाउंडेशन से फिनिश तक।",
       ),
     },
+    {
+      icon: <Home className="w-10 h-10 text-gold" />,
+      title: t(
+        "Interior Design (Old Homes to New Homes)",
+        "Interior Design (Old Homes to New Homes)",
+        "इंटीरियर डिज़ाइन (पुराने घरों से नए घरों तक)",
+      ),
+      description: t(
+        "Purane makaan ko naya look dena—from classic to contemporary.",
+        "Give your old house a new look—from classic to contemporary.",
+        "पुराने मकान को नया लुक देना—क्लासिक से कंटेम्पररी तक।",
+      ),
+    },
+   
     {
       icon: <Building className="w-10 h-10 text-gold" />,
       title: t("Commercial Buildings", "Commercial Buildings", "वाणिज्यिक भवन"),
@@ -90,12 +95,16 @@ export default function Services() {
           {t("Humari Services", "Our Services", "हमारी सेवाएं")}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Responsive horizontal scroll on mobile, grid on desktop */}
+        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:overflow-visible">
           {services.map((service, index) => (
             <div
               key={index}
-              ref={(el) => (cardsRef.current[index] = el)}
-              className="bg-white p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer"
+              ref={el => {
+                // Only assign the ref if el is not null (avoids type error in strict mode)
+                if (el) cardsRef.current[index] = el
+              }}
+              className="bg-white p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[80vw] max-w-xs md:min-w-0 md:max-w-none"
             >
               <div className="bg-maroon/5 p-4 rounded-full w-fit mb-4">{service.icon}</div>
               <h3 className="text-xl font-serif text-maroon mb-2">{service.title}</h3>

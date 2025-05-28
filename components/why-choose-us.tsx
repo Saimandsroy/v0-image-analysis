@@ -13,7 +13,11 @@ export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const itemsRef = useRef<(HTMLDivElement | null)[]>([])
 
-  const reasons = [
+  const reasons: {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+  }[] = [
     {
       icon: <Award className="w-10 h-10 text-gold" />,
       title: t("15+ Saal Ka Experience", "15+ Years of Experience", "15+ साल का अनुभव"),
@@ -107,12 +111,16 @@ export default function WhyChooseUs() {
           )}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Responsive horizontal scroll on mobile, grid on desktop */}
+        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              ref={(el) => (itemsRef.current[index] = el)}
-              className="bg-cream p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer"
+              ref={el => {
+                // Always assign, even if el is null (React expects this for cleanup)
+                itemsRef.current[index] = el
+              }}
+              className="bg-cream p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[80vw] max-w-xs md:min-w-0 md:max-w-none"
             >
               <div className="bg-maroon/5 p-4 rounded-full w-fit mb-4">{reason.icon}</div>
               <h3 className="text-xl font-serif text-maroon mb-2">{reason.title}</h3>

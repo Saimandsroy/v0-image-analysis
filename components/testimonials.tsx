@@ -88,7 +88,9 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              ref={(el) => (testimonialsRef.current[index] = el)}
+              ref={el => {
+                if (el) testimonialsRef.current[index] = el
+              }}
               className="bg-cream p-6 rounded-lg shadow-md border border-gold/10"
             >
               <div className="flex items-center gap-4 mb-4">
