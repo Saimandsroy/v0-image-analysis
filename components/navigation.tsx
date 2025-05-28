@@ -64,7 +64,7 @@ export default function Navigation() {
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-1 flex justify-between items-center">
         <Link href="#" className="flex items-center">
           <div className="relative h-20 w-48">
             <Image src="/images/logo.png" alt="Awadhi Homes Logo" fill className="object-contain" priority />
