@@ -106,30 +106,51 @@ export default function OurProcess() {
           )}
         </p>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gold/30 transform -translate-x-1/2 hidden md:block"></div>
-
-          <div className="space-y-12 relative">
+        {/* Modern decorated timeline */}
+        <div className="relative flex flex-col items-center">
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-gold/70 to-gold/10 rounded-full z-0 hidden md:block"></div>
+          <div className="flex flex-col gap-12 w-full z-10">
             {steps.map((step, index) => (
               <div
                 key={index}
-                ref={(el) => (stepsRef.current[index] = el)}
-                className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 relative`}
+                ref={el => { stepsRef.current[index] = el }}
+                className={`
+                  flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-0 relative
+                  ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}
+                `}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 top-0 w-6 h-6 bg-gold rounded-full transform -translate-x-1/2 hidden md:block"></div>
-
-                <div className={`md:w-1/2 ${index % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
-                  <div className="bg-white p-6 rounded-lg shadow-md border border-gold/20">
-                    <div className="text-4xl font-bold text-gold/30 mb-2">{step.number}</div>
-                    <h3 className="text-xl font-serif text-maroon mb-2">{step.title}</h3>
-                    <p className="text-gray-700">{step.description}</p>
+                {/* Timeline dot and connector */}
+                <div className="hidden md:flex flex-col items-center w-1/12 relative">
+                  <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center shadow-lg border-4 border-white z-10">
+                    <span className="text-white font-bold text-lg">{step.number}</span>
                   </div>
+                  {index !== steps.length - 1 && (
+                    <div className="flex-1 w-1 bg-gold/20 mt-1"></div>
+                  )}
                 </div>
 
-                {/* Empty div for spacing on the other side */}
-                <div className="md:w-1/2"></div>
+                {/* Card */}
+                <div className={`
+                  w-full md:w-5/12 bg-white rounded-xl shadow-xl border border-gold/20 p-6 md:p-8
+                  flex flex-col justify-center
+                  ${index % 2 === 0 ? "md:ml-12" : "md:mr-12"}
+                  hover:scale-[1.03] transition-transform duration-300
+                `}>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-bold text-lg shadow">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-serif text-maroon">{step.title}</h3>
+                  </div>
+                  <p className="text-gray-700 text-base md:text-lg">{step.description}</p>
+                </div>
+
+                {/* Connector for mobile */}
+                <div className="md:hidden flex flex-col items-center w-full my-2">
+                  {index !== steps.length - 1 && (
+                    <div className="w-1 h-8 bg-gold/20"></div>
+                  )}
+                </div>
               </div>
             ))}
           </div>

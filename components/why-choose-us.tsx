@@ -11,6 +11,11 @@ gsap.registerPlugin(ScrollTrigger)
 export default function WhyChooseUs() {
   const { t } = useLanguage()
   const sectionRef = useRef<HTMLDivElement>(null)
+
+
+
+
+
   const itemsRef = useRef<(HTMLDivElement | null)[]>([])
 
   const reasons: {
