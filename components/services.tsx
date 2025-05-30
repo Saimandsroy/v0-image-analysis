@@ -89,29 +89,32 @@ export default function Services() {
   }, [services.length])
 
   return (
-    <section id="services" ref={sectionRef} className="py-20 px-4 md:px-10 bg-cream">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" ref={sectionRef} className="py-20 px-4 md:px-10 bg-cream overflow-x-hidden">
+      <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-3xl md:text-4xl font-serif text-maroon text-center mb-12">
           {t("Humari Services", "Our Services", "हमारी सेवाएं")}
         </h2>
-
-        {/* Responsive horizontal scroll on mobile, grid on desktop */}
-        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:overflow-visible">
+        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:overflow-visible w-full">
           {services.map((service, index) => (
             <div
               key={index}
-              ref={el => {
-                // Only assign the ref if el is not null (avoids type error in strict mode)
-                if (el) cardsRef.current[index] = el
-              }}
-              className="bg-white p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[80vw] max-w-xs md:min-w-0 md:max-w-none"
+              ref={el => { cardsRef.current[index] = el }}
+              className="bg-white p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[85vw] max-w-xs md:min-w-0 md:max-w-none w-full"
             >
               <div className="bg-maroon/5 p-4 rounded-full w-fit mb-4">{service.icon}</div>
               <h3 className="text-xl font-serif text-maroon mb-2">{service.title}</h3>
               <p className="text-gray-700">{service.description}</p>
-              <button className="mt-4 text-gold hover:text-maroon/80 font-medium transition-colors">
-                {t("Aur Jaanein →", "Learn More →", "और जानें →")}
-              </button>
+              <a
+                href="https://wa.me/919125197678?text=Hi,%20I%20am%20interested%20in%20learning%20more%20about%20your%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-4"
+                style={{ width: "100%" }}
+              >
+                <button className="w-full text-gold hover:text-maroon/80 font-medium transition-colors bg-transparent">
+                  {t("Aur Jaanein →", "Learn More →", "और जानें →")}
+                </button>
+              </a>
             </div>
           ))}
         </div>

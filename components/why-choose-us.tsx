@@ -12,10 +12,6 @@ export default function WhyChooseUs() {
   const { t } = useLanguage()
   const sectionRef = useRef<HTMLDivElement>(null)
 
-
-
-
-
   const itemsRef = useRef<(HTMLDivElement | null)[]>([])
 
   const reasons: {
@@ -103,8 +99,8 @@ export default function WhyChooseUs() {
   }, [reasons.length])
 
   return (
-    <section id="why-choose-us" ref={sectionRef} className="py-20 px-4 md:px-10 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="why-choose-us" ref={sectionRef} className="py-20 px-4 md:px-10 bg-white overflow-x-hidden">
+      <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-3xl md:text-4xl font-serif text-maroon text-center mb-4">
           {t("Humein Kyun Chunein?", "Why Choose Us?", "हमें क्यों चुनें?")}
         </h2>
@@ -115,17 +111,12 @@ export default function WhyChooseUs() {
             "अवधी होम्स लखनऊ का ट्रस्टेड कंस्ट्रक्शन पार्टनर है। यहां कुछ कारण हैं कि आप हमें क्यों चुनें:",
           )}
         </p>
-
-        {/* Responsive horizontal scroll on mobile, grid on desktop */}
-        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible">
+        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible w-full">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              ref={el => {
-                // Always assign, even if el is null (React expects this for cleanup)
-                itemsRef.current[index] = el
-              }}
-              className="bg-cream p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[80vw] max-w-xs md:min-w-0 md:max-w-none"
+              ref={el => { itemsRef.current[index] = el }}
+              className="bg-cream p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[85vw] max-w-xs md:min-w-0 md:max-w-none w-full"
             >
               <div className="bg-maroon/5 p-4 rounded-full w-fit mb-4">{reason.icon}</div>
               <h3 className="text-xl font-serif text-maroon mb-2">{reason.title}</h3>

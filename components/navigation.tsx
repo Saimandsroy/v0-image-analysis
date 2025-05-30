@@ -86,7 +86,7 @@ export default function Navigation() {
           ))}
           <Link href="#contact">
             <Button
-              className="bg-gold hover:bg-gold/80 text-maroon hover:text-white rounded-md transition-all"
+              className="bg-gold hover:bg-gold/80 text-maroon hover:text-white rounded-md transition-all ml-2"
               size="sm"
             >
               {t("Get Quote", "Get Quote", "कोट प्राप्त करें")}
@@ -95,7 +95,11 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-maroon p-2 rounded-md" onClick={toggleMenu} aria-label="Toggle menu">
+        <button
+          className="md:hidden text-maroon p-2 rounded-md ml-2"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>

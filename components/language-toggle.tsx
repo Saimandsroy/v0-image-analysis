@@ -33,6 +33,7 @@ export default function LanguageToggle() {
         {/* Circle button showing current language */}
         <button
           className="w-12 h-12 rounded-full bg-gold text-maroon font-bold flex items-center justify-center shadow-lg border-2 border-white hover:bg-gold/80 transition text-xs"
+          style={{ marginBottom: 12 }} // Add spacing below the toggle
           onClick={() => setOpen((v) => !v)}
           aria-label="Change language"
         >
