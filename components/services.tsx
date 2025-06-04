@@ -89,17 +89,21 @@ export default function Services() {
   }, [services.length])
 
   return (
-    <section id="services" ref={sectionRef} className="py-20 px-4 md:px-10 bg-cream overflow-x-hidden">
+    <section
+      id="services"
+      ref={sectionRef}
+      className="py-16 px-2 sm:py-20 sm:px-4 md:px-10 bg-cream overflow-x-hidden w-full"
+    >
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-3xl md:text-4xl font-serif text-maroon text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-maroon text-center mb-8 sm:mb-12">
           {t("Humari Services", "Our Services", "हमारी सेवाएं")}
         </h2>
-        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:overflow-visible w-full">
+        <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:overflow-visible w-full min-w-0">
           {services.map((service, index) => (
             <div
               key={index}
               ref={el => { cardsRef.current[index] = el }}
-              className="bg-white p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[85vw] max-w-xs md:min-w-0 md:max-w-none w-full"
+              className="bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[90vw] sm:min-w-[60vw] md:min-w-0 max-w-xs md:max-w-none w-full"
             >
               <div className="bg-maroon/5 p-4 rounded-full w-fit mb-4">{service.icon}</div>
               <h3 className="text-xl font-serif text-maroon mb-2">{service.title}</h3>

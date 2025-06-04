@@ -99,24 +99,24 @@ export default function WhyChooseUs() {
   }, [reasons.length])
 
   return (
-    <section id="why-choose-us" ref={sectionRef} className="py-20 px-4 md:px-10 bg-white overflow-x-hidden">
+    <section id="why-choose-us" ref={sectionRef} className="py-16 px-2 sm:py-20 sm:px-4 md:px-10 bg-white overflow-x-hidden w-full">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-3xl md:text-4xl font-serif text-maroon text-center mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-maroon text-center mb-8 sm:mb-12">
           {t("Humein Kyun Chunein?", "Why Choose Us?", "हमें क्यों चुनें?")}
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        <p className="text-center text-gray-600 mb-8 sm:mb-12 max-w-3xl mx-auto">
           {t(
             "Awadhi Homes Lucknow ka trusted construction partner hai. Yahan kuch reasons hain ki aap humein kyun chunein:",
             "Awadhi Homes is Lucknow's trusted construction partner. Here are some reasons why you should choose us:",
             "अवधी होम्स लखनऊ का ट्रस्टेड कंस्ट्रक्शन पार्टनर है। यहां कुछ कारण हैं कि आप हमें क्यों चुनें:",
           )}
         </p>
-        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible w-full">
+        <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible w-full min-w-0">
           {reasons.map((reason, index) => (
             <div
               key={index}
               ref={el => { itemsRef.current[index] = el }}
-              className="bg-cream p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[85vw] max-w-xs md:min-w-0 md:max-w-none w-full"
+              className="bg-cream p-4 sm:p-6 rounded-lg shadow-md border border-gold/20 hover:shadow-lg transition-all hover:scale-[1.03] cursor-pointer flex-shrink-0 min-w-[90vw] sm:min-w-[60vw] md:min-w-0 max-w-xs md:max-w-none w-full"
             >
               <div className="bg-maroon/5 p-4 rounded-full w-fit mb-4">{reason.icon}</div>
               <h3 className="text-xl font-serif text-maroon mb-2">{reason.title}</h3>
