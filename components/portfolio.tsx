@@ -184,11 +184,11 @@ export default function Portfolio() {
         </h2>
         <p className="text-center text-gray-600 mb-12">{t("हमारा काम", "Our Work", "हमारा काम")}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible w-full min-w-0">
           {portfolioItems.map((item) => (
             <div
               key={item.id}
-              className="relative group overflow-hidden rounded-lg shadow-md cursor-pointer h-64"
+              className="relative group overflow-hidden rounded-lg shadow-md cursor-pointer h-64 flex-shrink-0 min-w-[90vw] sm:min-w-[60vw] md:min-w-0 max-w-xs md:max-w-none w-full"
               onClick={() => openLightbox(item)}
             >
               <Image

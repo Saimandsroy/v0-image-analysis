@@ -94,11 +94,11 @@ export default function VideoTestimonials() {
           {t("Hamare clients ke anubhav suniye", "Listen to our clients' experiences", "हमारे क्लाइंट्स के अनुभव सुनिए")}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex gap-8 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible w-full min-w-0">
           {videoTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+              className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow flex-shrink-0 min-w-[90vw] sm:min-w-[60vw] md:min-w-0 max-w-xs md:max-w-none w-full"
               onClick={handleVideoClick}
             >
               <div className="relative h-48">

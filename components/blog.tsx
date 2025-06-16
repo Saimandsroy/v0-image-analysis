@@ -82,9 +82,9 @@ export default function Blog() {
         </h2>
         <p className="text-center text-gray-600 mb-12">{t("ब्लॉग और टिप्स", "Blog And Tips", "ब्लॉग और टिप्स")}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex gap-6 overflow-x-auto pb-4 lg:grid lg:grid-cols-4 md:gap-6 lg:overflow-visible w-full min-w-0">
           {blogPosts.slice(0, 4).map((post) => (
-            <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 min-w-[90vw] sm:min-w-[60vw] lg:min-w-0 max-w-xs lg:max-w-none w-full">
               <div className="relative h-48">
                 <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
               </div>
