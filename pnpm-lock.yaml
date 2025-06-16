@@ -1,5 +1,5 @@
-lockfileVersion: '9.0'
-
+# Delete this file and run `pnpm install` locally to regenerate a fresh lockfile.
+# This helps resolve Vercel build errors related to lockfile or dependency mismatches.
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
