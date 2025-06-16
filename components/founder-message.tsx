@@ -51,24 +51,22 @@ export default function FounderMessage() {
   }, [])
 
   return (
-    <section id="founder-message" ref={sectionRef} className="py-20 px-4 md:px-10 bg-cream">
+    <section id="Awadhi Homes Mission" ref={sectionRef} className="py-20 px-4 md:px-10 bg-cream">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div ref={imageRef} className="md:w-1/3">
             <div className="relative">
               <div className="relative h-80 w-64 rounded-lg overflow-hidden shadow-lg border-4 border-white">
                 <Image
-                  src="/placeholder.svg?height=400&width=300&text=Founder"
-                  alt={t("Imad Khan - Founder", "Imad Khan - Founder", "इमाद खान - फाउंडर")}
+                  src="/images/cf38d3ee40e829bc95a1385b086272ad.jpg"
+                  alt={t("Awadhi Homes Logo", "Awadhi Homes Logo", "अवधी होम्स लोगो")}
                   fill
-                  className="object-cover"
+                  className="object-contain bg-white"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-gold text-white p-4 rounded-lg shadow-lg">
                 <p className="font-serif font-bold">
-                  {t("15+ Years", "15+ Years", "15+ साल")}
-                  <br />
-                  {t("Experience", "Experience", "अनुभव")}
+                  {t("Our Mission", "Our Mission", "हमारा मिशन")}
                 </p>
               </div>
             </div>
@@ -76,7 +74,7 @@ export default function FounderMessage() {
 
           <div ref={contentRef} className="md:w-2/3">
             <h2 className="text-3xl md:text-4xl font-serif text-maroon mb-6">
-              {t("Founder's Message", "Founder's Message", "फाउंडर का संदेश")}
+              {t("Awadhi Homes Mission", "Awadhi Homes Mission", "अवधी होम्स का मिशन")}
             </h2>
 
             <div className="relative">
@@ -84,35 +82,35 @@ export default function FounderMessage() {
 
               <p className="text-gray-700 mb-4">
                 {t(
-                  "Namaste, main Imad Khan, Awadhi Homes ka founder. 15+ saal pehle maine ek vision ke saath is company ki shuruaat ki thi - Lucknow mein quality construction services provide karna jo affordable bhi ho aur long-lasting bhi.",
-                  "Namaste, I am Imad Khan, the founder of Awadhi Homes. 15+ years ago, I started this company with a vision - to provide quality construction services in Lucknow that are both affordable and long-lasting.",
-                  "नमस्ते, मैं इमाद खान, अवधी होम्स का फाउंडर। 15+ साल पहले मैंने एक विज़न के साथ इस कंपनी की शुरुआत की थी - लखनऊ में क्वालिटी कंस्ट्रक्शन सर्विसेज प्रोवाइड करना जो अफोर्डेबल भी हो और लॉन्ग-लास्टिंग भी।",
+                  "Awadhi Homes ka mission hai Lucknow aur aas-paas ke logon ko world-class, transparent, aur affordable construction solutions dena. Humara vishwas hai ki har vyakti apne sapno ka ghar deserve karta hai—aur hum us sapne ko reality mein badalne ke liye committed hain.",
+                  "The mission of Awadhi Homes is to provide world-class, transparent, and affordable construction solutions to the people of Lucknow and nearby regions. We believe everyone deserves their dream home—and we are committed to turning that dream into reality.",
+                  "अवधी होम्स का मिशन है लखनऊ और आसपास के लोगों को वर्ल्ड-क्लास, ट्रांसपेरेंट और अफोर्डेबल कंस्ट्रक्शन सॉल्यूशंस देना। हमारा विश्वास है कि हर व्यक्ति अपने सपनों का घर डिज़र्व करता है—और हम उस सपने को हकीकत में बदलने के लिए प्रतिबद्ध हैं।",
                 )}
               </p>
 
               <p className="text-gray-700 mb-4">
                 {t(
-                  "Humne 200+ se zyada projects successfully complete kiye hain aur har client ke saath ek trust-based relationship banaya hai. Hum sirf ghar nahi banate, hum sapne banate hain.",
-                  "We have successfully completed more than 200 projects and built a trust-based relationship with every client. We don't just build houses, we build dreams.",
-                  "हमने 200+ से ज्यादा प्रोजेक्ट्स सफलतापूर्वक पूरे किए हैं और हर क्लाइंट के साथ एक ट्रस्ट-बेस्ड रिलेशनशिप बनाया है। हम सिर्फ घर नहीं बनाते, हम सपने बनाते हैं।",
+                  "Hum quality, integrity, aur timely delivery par focus karte hain. Har project mein hum apne clients ke saath ek strong relationship banate hain, taki unka experience stress-free aur memorable ho.",
+                  "We focus on quality, integrity, and timely delivery. In every project, we build a strong relationship with our clients to ensure their experience is stress-free and memorable.",
+                  "हम क्वालिटी, इंटीग्रिटी और समय पर डिलीवरी पर फोकस करते हैं। हर प्रोजेक्ट में हम अपने क्लाइंट्स के साथ एक मजबूत रिश्ता बनाते हैं, ताकि उनका अनुभव स्ट्रेस-फ्री और यादगार हो।",
                 )}
               </p>
 
               <p className="text-gray-700">
                 {t(
-                  "Aaj bhi humara mission wohi hai - quality, transparency, aur on-time delivery. Agar aap apne dream home ya commercial project ke baare mein soch rahe hain, toh humse baat karein. Hum aapke vision ko reality mein badalne mein madad karenge.",
-                  "Even today, our mission remains the same - quality, transparency, and on-time delivery. If you are thinking about your dream home or commercial project, talk to us. We will help turn your vision into reality.",
-                  "आज भी हमारा मिशन वही है - क्वालिटी, ट्रांसपेरेंसी, और ऑन-टाइम डिलीवरी। अगर आप अपने ड्रीम होम या कमर्शियल प्रोजेक्ट के बारे में सोच रहे हैं, तो हमसे बात करें। हम आपके विज़न को रियलिटी में बदलने में मदद करेंगे।",
+                  "Awadhi Homes ka lakshya hai har ghar ko ek nayi pehchaan dena—modern design, sustainable practices, aur customer satisfaction ke saath.",
+                  "Awadhi Homes aims to give every home a new identity—with modern design, sustainable practices, and customer satisfaction.",
+                  "अवधी होम्स का लक्ष्य है हर घर को एक नई पहचान देना—मॉडर्न डिज़ाइन, सस्टेनेबल प्रैक्टिसेज़ और कस्टमर सैटिस्फैक्शन के साथ।",
                 )}
               </p>
 
               <div className="mt-6 flex items-center gap-4">
                 <div className="h-1 w-16 bg-gold"></div>
-                <p className="font-serif text-maroon font-bold">{t("Imad Khan", "Imad Khan", "इमाद खान")}</p>
+                <p className="font-serif text-maroon font-bold">{t("Awadhi Homes Team", "Awadhi Homes Team", "अवधी होम्स टीम")}</p>
               </div>
 
               <p className="text-gray-600 text-sm">
-                {t("Founder & CEO, Awadhi Homes", "Founder & CEO, Awadhi Homes", "फाउंडर और सीईओ, अवधी होम्स")}
+                {t("Building Dreams, Creating Trust", "Building Dreams, Creating Trust", "सपनों का निर्माण, विश्वास की रचना")}
               </p>
             </div>
           </div>
@@ -121,3 +119,4 @@ export default function FounderMessage() {
     </section>
   )
 }
+  

@@ -1,10 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useLanguage } from "./language-context"
-import { Play, Pause, Volume2, VolumeX, X } from "lucide-react"
+import { Play } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -20,17 +20,13 @@ interface VideoTestimonial {
 export default function VideoTestimonials() {
   const { t } = useLanguage()
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [activeVideo, setActiveVideo] = useState<number | null>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   const videoTestimonials: VideoTestimonial[] = [
     {
       id: 1,
       name: t("Rajesh Kumar", "Rajesh Kumar", "राजेश कुमार"),
       location: t("Gomti Nagar, Lucknow", "Gomti Nagar, Lucknow", "गोमती नगर, लखनऊ"),
-      videoUrl: "https://example.com/video1.mp4", // Replace with actual video URL
+      videoUrl: "https://example.com/video1.mp4",
       thumbnail: "/placeholder.svg?height=400&width=600&text=Video+Testimonial+1",
       description: t(
         "Awadhi Homes ne humara dream home banaya hai. Unki team professional hai aur quality work karti hai.",
@@ -42,7 +38,7 @@ export default function VideoTestimonials() {
       id: 2,
       name: t("Priya Sharma", "Priya Sharma", "प्रिया शर्मा"),
       location: t("Hazratganj, Lucknow", "Hazratganj, Lucknow", "हजरतगंज, लखनऊ"),
-      videoUrl: "https://example.com/video2.mp4", // Replace with actual video URL
+      videoUrl: "https://example.com/video2.mp4",
       thumbnail: "/placeholder.svg?height=400&width=600&text=Video+Testimonial+2",
       description: t(
         "Purane ghar ko naya look dene ke liye Awadhi Homes se better koi nahi. Modern design with traditional touch.",
@@ -54,7 +50,7 @@ export default function VideoTestimonials() {
       id: 3,
       name: t("Amit Singh", "Amit Singh", "अमित सिंह"),
       location: t("Indira Nagar, Lucknow", "Indira Nagar, Lucknow", "इंदिरा नगर, लखनऊ"),
-      videoUrl: "https://example.com/video3.mp4", // Replace with actual video URL
+      videoUrl: "https://example.com/video3.mp4",
       thumbnail: "/placeholder.svg?height=400&width=600&text=Video+Testimonial+3",
       description: t(
         "Commercial property banwane ka experience bahut acha raha. On-time delivery aur transparent pricing.",
@@ -82,36 +78,10 @@ export default function VideoTestimonials() {
     )
   }, [])
 
-  const handleVideoClick = (id: number) => {
-    setActiveVideo(id)
-    setIsPlaying(true)
+  const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@AwadhiHomes"
 
-    // In a real implementation, you would play the video
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error("Error playing video:", error)
-      })
-    }
-  }
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play().catch((error) => {
-          console.error("Error playing video:", error)
-        })
-      }
-      setIsPlaying(!isPlaying)
-    }
-  }
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
-    }
+  const handleVideoClick = () => {
+    window.open(YOUTUBE_CHANNEL_URL, "_blank")
   }
 
   return (
@@ -129,7 +99,7 @@ export default function VideoTestimonials() {
             <div
               key={testimonial.id}
               className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => handleVideoClick(testimonial.id)}
+              onClick={handleVideoClick}
             >
               <div className="relative h-48">
                 <div
@@ -150,71 +120,6 @@ export default function VideoTestimonials() {
             </div>
           ))}
         </div>
-
-        {/* Video Modal */}
-        {activeVideo !== null && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-            <div className="relative w-full max-w-4xl">
-              <button
-                className="absolute -top-12 right-0 text-white hover:text-gold"
-                onClick={() => setActiveVideo(null)}
-              >
-                <X className="w-8 h-8" />
-              </button>
-
-              <div className="relative aspect-video bg-black rounded-lg overflow-hidden">
-                {/* Replace with actual video */}
-                <video
-                  ref={videoRef}
-                  className="w-full h-full"
-                  poster={videoTestimonials.find((v) => v.id === activeVideo)?.thumbnail}
-                  controls={false}
-                  muted={isMuted}
-                >
-                  <source src={videoTestimonials.find((v) => v.id === activeVideo)?.videoUrl} type="video/mp4" />
-                  {t(
-                    "Your browser does not support the video tag.",
-                    "Your browser does not support the video tag.",
-                    "आपका ब्राउज़र वीडियो टैग का समर्थन नहीं करता है।",
-                  )}
-                </video>
-
-                <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4 flex justify-between items-center">
-                  <div>
-                    <h3 className="text-white text-lg">{videoTestimonials.find((v) => v.id === activeVideo)?.name}</h3>
-                    <p className="text-white/80 text-sm">
-                      {videoTestimonials.find((v) => v.id === activeVideo)?.location}
-                    </p>
-                  </div>
-                  <div className="flex gap-4">
-                    <button
-                      className="bg-white/20 hover:bg-white/30 p-2 rounded-full"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        togglePlay()
-                      }}
-                    >
-                      {isPlaying ? <Pause className="w-6 h-6 text-white" /> : <Play className="w-6 h-6 text-white" />}
-                    </button>
-                    <button
-                      className="bg-white/20 hover:bg-white/30 p-2 rounded-full"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        toggleMute()
-                      }}
-                    >
-                      {isMuted ? (
-                        <VolumeX className="w-6 h-6 text-white" />
-                      ) : (
-                        <Volume2 className="w-6 h-6 text-white" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )

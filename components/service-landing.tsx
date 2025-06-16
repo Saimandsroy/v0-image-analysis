@@ -149,15 +149,21 @@ export default function ServiceLanding({ service }: ServiceLandingProps) {
             </ul>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-gold hover:bg-gold/80 text-maroon hover:text-white px-6 py-3 rounded-md transition-all flex items-center gap-2">
-                {t(service.cta.hinglish, service.cta.english, service.cta.hindi)}
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-
-              <a href="tel:+919125197678">
+              <a
+                href="https://wa.me/919125197678?text=Hi,%20I%20am%20interested%20in%20learning%20more%20about%20your%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button className="w-full sm:w-auto bg-gold hover:bg-gold/80 text-maroon hover:text-white px-6 py-3 rounded-md transition-all flex items-center gap-2">
+                  {t(service.cta.hinglish, service.cta.english, service.cta.hindi)}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="tel:+919125197678" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
-                  className="border-gold text-gold hover:bg-gold hover:text-maroon px-6 py-3 rounded-md transition-all"
+                  className="w-full sm:w-auto border-gold text-gold hover:bg-gold hover:text-maroon px-6 py-3 rounded-md transition-all"
                 >
                   {t("Call Now", "Call Now", "अभी कॉल करें")}
                 </Button>

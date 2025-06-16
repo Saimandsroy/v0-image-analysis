@@ -1,7 +1,7 @@
 "use client"
 
+import { Phone } from "lucide-react"
 import { useEffect, useState } from "react"
-import { Twitter, Instagram, Facebook, Linkedin, Phone } from "lucide-react"
 
 export default function SocialSidebar() {
   const [isVisible, setIsVisible] = useState(true)
@@ -73,49 +73,8 @@ export default function SocialSidebar() {
             Call Karein
           </span>
         </a>
-
-        <div className="h-px w-8 bg-gray-300 my-2"></div>
-
-        <a
-          href="https://twitter.com/imadkhan0802"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-[#1DA1F2] p-2 rounded-full hover:bg-gray-100 transition-colors shadow-md"
-          title="Twitter"
-        >
-          <Twitter className="w-5 h-5" />
-        </a>
-
-        <a
-          href="https://instagram.com/imadkhan0802"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-[#E1306C] p-2 rounded-full hover:bg-gray-100 transition-colors shadow-md"
-          title="Instagram"
-        >
-          <Instagram className="w-5 h-5" />
-        </a>
-
-        <a
-          href="https://facebook.com/imadkhan0802"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-[#4267B2] p-2 rounded-full hover:bg-gray-100 transition-colors shadow-md"
-          title="Facebook"
-        >
-          <Facebook className="w-5 h-5" />
-        </a>
-
-        <a
-          href="https://linkedin.com/in/imadkhan0802"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-[#0077B5] p-2 rounded-full hover:bg-gray-100 transition-colors shadow-md"
-          title="LinkedIn"
-        >
-          <Linkedin className="w-5 h-5" />
-        </a>
       </div>
+        
     </div>
   )
 }

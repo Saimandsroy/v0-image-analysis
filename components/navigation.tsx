@@ -56,6 +56,10 @@ export default function Navigation() {
       name: t("Contact", "Contact", "संपर्क"),
       href: "#contact",
     },
+    {
+      name: "Admin",
+      href: "/admin",
+    },
   ]
 
   return (
@@ -67,7 +71,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-1 flex justify-between items-center">
         <Link href="#" className="flex items-center">
           <div className="relative h-20 w-48">
-            <Image src="/images/logo.png" alt="Awadhi Homes Logo" fill className="object-contain" priority />
+            <Image src="/images/LOGO (1).png" alt="Awadhi Homes Logo" fill className="object-contain" priority />
           </div>
         </Link>
 

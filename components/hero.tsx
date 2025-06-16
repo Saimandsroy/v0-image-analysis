@@ -82,17 +82,25 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/40 z-10"></div>
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/rumi-darwaza.png')" }}
+        style={{ backgroundImage: "url('/images/IMG_20250616_124915.png.jpg')" }}
       ></div>
 
       {/* Awadhi Homes top-left */}
       <div
         className="absolute left-6 z-15"
-        style={{ top: "90px" }} // Adjust this value as needed (e.g., "85px", "100px", etc.)
+        style={{ top: "90px" }}
       >
         <div className="relative">
           <div className="absolute inset-0 bg-sky-500/70 rounded-lg -z-10 transform scale-110"></div>
-          <h1 className="text-3xl md:text-4xl font-serif font-bold px-2 py-1 text-darkBlue">Awadhi Homes</h1>
+          <h1
+            className="text-3xl md:text-4xl font-serif font-bold px-2 py-1"
+            style={{
+              color: "#1a202c", // Deep slate/charcoal (Tailwind slate-900)
+              textShadow: "0 2px 16px rgba(255,255,255,0.7), 0 1px 0 #FFD700" // Light glow for contrast on gold
+            }}
+          >
+            Awadhi Homes
+          </h1>
         </div>
       </div>
 
@@ -138,37 +146,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Trust badges */}
-        <div className="absolute bottom-8 left-0 right-0 flex justify-center">
-          <div className="bg-black/50 backdrop-blur-sm rounded-lg p-4 flex flex-wrap justify-center gap-4 max-w-3xl">
-            <div className="flex items-center gap-2">
-              <div className="bg-gold/20 p-2 rounded-full">
-                <Image src="/placeholder.svg?height=30&width=30&text=★" alt="Experience" width={30} height={30} />
-              </div>
-              <span className="text-sm md:text-base font-medium" style={{ color: "#B22222" }}>
-                {t("15+ Years Experience", "15+ Years Experience", "15+ वर्षों का अनुभव")}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="bg-gold/20 p-2 rounded-full">
-                <Image src="/placeholder.svg?height=30&width=30&text=✓" alt="Projects" width={30} height={30} />
-              </div>
-              <span className="text-sm md:text-base font-medium" style={{ color: "#800000" }}>
-                {t("100+ Projects Completed", "100+ Projects Completed", "100+ प्रोजेक्ट्स पूरे किए")}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="bg-gold/20 p-2 rounded-full">
-                <Image src="/placeholder.svg?height=30&width=30&text=★" alt="Rating" width={30} height={30} />
-              </div>
-              <span className="text-sm md:text-base font-medium" style={{ color: "#800000" }}>
-                {t("4.8/5 Google Rating", "4.8/5 Google Rating", "4.8/5 गूगल रेटिंग")}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      
       {/* Lead capture form modal */}
       {showLeadForm && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
@@ -234,6 +212,7 @@ export default function Hero() {
           </div>
         </div>
       )}
+      </div>
     </section>
   )
 }

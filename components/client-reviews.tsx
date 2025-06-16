@@ -172,41 +172,6 @@ export default function ClientReviews() {
               </button>
             </div>
           </div>
-
-          <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-maroon/5 rounded-lg max-w-3xl mx-auto w-full">
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <div className="bg-gold/20 p-1.5 sm:p-2 rounded-full">
-                <Star className="w-5 h-5 sm:w-6 sm:h-6 text-gold fill-gold" />
-              </div>
-              <div>
-                <h3 className="font-medium text-sm sm:text-base">4.8/5 Google Reviews</h3>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  {t("Based on 120+ reviews", "Based on 120+ reviews", "120+ रिव्यूज के आधार पर")}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2 sm:gap-4 justify-center">
-              <div className="bg-white px-3 py-1.5 sm:px-4 sm:py-2 rounded border border-gray-200">
-                <p className="text-xs sm:text-sm font-medium">{t("ISO Certified", "ISO Certified", "आईएसओ प्रमाणित")}</p>
-              </div>
-              <div className="bg-white px-3 py-1.5 sm:px-4 sm:py-2 rounded border border-gray-200">
-                <p className="text-xs sm:text-sm font-medium">
-                  {t("15+ Years Experience", "15+ Years Experience", "15+ वर्षों का अनुभव")}
-                </p>
-              </div>
-              <div className="bg-white px-3 py-1.5 sm:px-4 sm:py-2 rounded border border-gray-200">
-                <p className="text-xs sm:text-sm font-medium">
-                  {t("200+ Projects Completed", "200+ Projects Completed", "200+ प्रोजेक्ट्स पूरे किए")}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-4 sm:mt-6 text-center">
-              <Button className="bg-gold hover:bg-gold/80 text-maroon hover:text-white px-4 sm:px-6 py-2 rounded-md transition-all min-w-[120px] min-h-[48px]">
-                {t("Free Site Visit Book Karein", "Book a Free Site Visit", "फ्री साइट विजिट बुक करें")}
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </section>

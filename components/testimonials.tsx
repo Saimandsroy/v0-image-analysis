@@ -88,9 +88,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              ref={el => {
-                if (el) testimonialsRef.current[index] = el
-              }}
+              ref={el => { testimonialsRef.current[index] = el }}
               className="bg-cream p-6 rounded-lg shadow-md border border-gold/10"
             >
               <div className="flex items-center gap-4 mb-4">
@@ -119,36 +117,8 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 p-6 bg-maroon/5 rounded-lg max-w-3xl mx-auto">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="bg-gold/20 p-2 rounded-full">
-              <Star className="w-6 h-6 text-gold fill-gold" />
-            </div>
-            <div>
-              <h3 className="font-medium">4.8/5 Google Reviews</h3>
-              <p className="text-sm text-gray-600">
-                {t("Based on 120+ reviews", "Based on 120+ reviews", "120+ रिव्यूज के आधार पर")}
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <div className="bg-white px-4 py-2 rounded border border-gray-200">
-              <p className="text-sm font-medium">{t("ISO Certified", "ISO Certified", "आईएसओ प्रमाणित")}</p>
-            </div>
-            <div className="bg-white px-4 py-2 rounded border border-gray-200">
-              <p className="text-sm font-medium">
-                {t("15+ Years Experience", "15+ Years Experience", "15+ वर्षों का अनुभव")}
-              </p>
-            </div>
-            <div className="bg-white px-4 py-2 rounded border border-gray-200">
-              <p className="text-sm font-medium">
-                {t("200+ Projects Completed", "200+ Projects Completed", "200+ प्रोजेक्ट्स पूरे किए")}
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
 }
+          
